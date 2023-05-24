@@ -1,19 +1,9 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
 from uuid import uuid4
 
 app = FastAPI()
-
-origins = ['http://localhost:63342']
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 class Animal(BaseModel):
@@ -33,9 +23,9 @@ def cadastro(animal: Animal):
     return {'msg':'Animal Cadastrado com sucesso!'}
 
 
-@app.get('/animais')
+@app.get('/')
 def retornarAnimais():
-    return banco
+    return {"msg":"Deu certo"}
 
 
 @app.get('/animais/{animal_id}')
