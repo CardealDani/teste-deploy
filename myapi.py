@@ -6,8 +6,6 @@ from uuid import uuid4
 app = FastAPI()
 
 
-
-
 class Animal(BaseModel):
     id:Optional[str]
     nome:str
