@@ -1,5 +1,5 @@
 async function carregarAnimais() {
-    const response = await axios.get('http://localhost:8000/animais')
+    const response = await axios.get('https://fastapi-appanimal.herokuapp.com/animais')
     const animais = response.data
     const lista = document.getElementById('lista-animais')
 
@@ -25,7 +25,7 @@ function manipularFormulario(){
         const idade_animal = input_idade.value
         const cor_animal = input_cor.value
         const sexo_animal = input_sexo.value
-        await axios.post('http://localhost:8000/animais', {
+        await axios.post('https://fastapi-appanimal.herokuapp.com/animais', {
             nome: nome_animal,
             idade: idade_animal,
             sexo: sexo_animal,
@@ -41,7 +41,7 @@ function apagarLista(){
     const btl_deletar = document.getElementById('deletar')
     btl_deletar.onclick = async (event)=>{
         event.preventDefault()
-        await axios.delete('http://localhost:8000/animais')
+        await axios.delete('https://fastapi-appanimal.herokuapp.com/animais')
         console.log('Lista deletada com sucesso')
             carregarAnimais()
 
